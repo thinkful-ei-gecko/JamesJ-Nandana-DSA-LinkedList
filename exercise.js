@@ -198,3 +198,33 @@ function WhatDoesThisProgramDo(lst) {
 // skip to the next next node and compare, else update to next node
 // and compare. Upon reaching the end of the list, start from current's
 // next and do it again. Not really doing anything...?
+
+// Exercise 5
+// given a ll, start with the head and store this value in a var
+//
+let SLL = new LinkedList()
+SLL.insertFirst('Apollo')
+SLL.insertLast('Boomer')
+SLL.insertLast('Helo')
+SLL.insertLast('Husker')
+SLL.insertLast('Starbuck')
+SLL.insertLast('Tauhida')
+
+SLL.remove('squirrel')
+SLL.insertBefore('Athena', 'Boomer')
+SLL.insertAfter('Hotdog', 'Helo')
+SLL.insertAt('Kat', 2)
+SLL.remove('Tauhida')
+
+function useReverse(node) {
+  if(node.next === null) {
+    return node
+  }
+
+  let next = node.next
+  node.next = null
+  let reverse = useReverse(next)
+  next.next = node
+  return reverse
+}
+console.log(JSON.stringify(useReverse(SLL.head)))
