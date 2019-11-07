@@ -147,7 +147,7 @@ function findLast(ll) {
 // end free functions
 
 function main() {
-  var SLL = new LinkedList()
+  let SLL = new LinkedList()
   SLL.insertFirst('Apollo')
   SLL.insertLast('Boomer')
   SLL.insertLast('Helo')
@@ -182,7 +182,6 @@ function WhatDoesThisProgramDo(lst) {
   while (current !== null) {
     let newNode = current
     while (newNode.next !== null) {
-      console.log(newNode)
       if (newNode.next.value === current.value) {
         newNode.next = newNode.next.next
       } else {
@@ -193,10 +192,9 @@ function WhatDoesThisProgramDo(lst) {
   }
 }
 
-WhatDoesThisProgramDo(SLL)
-// ANSWER: For as long as we do not reach the end of the list
+// ANSWER: O(n) or "linear" because it only cares based on list length
+// For as long as we do not reach the end of the list
 // compare the first Node value against the next and if equal,
 // skip to the next next node and compare, else update to next node
 // and compare. Upon reaching the end of the list, start from current's
 // next and do it again. Not really doing anything...?
-
