@@ -107,7 +107,7 @@ function size(ll) {
   let current = ll.head
   let next = current.next
   let count = 0
-  while(next !== null && next.value !== null) {
+  while (next !== null && next.value !== null) {
     count++
     current = next
     next = next.next
@@ -125,7 +125,7 @@ function findPrevious(ll, value) {
   let prev = null
   let current = ll.head
 
-  while(current.value !== value) {
+  while (current.value !== value) {
     prev = current
     current = current.next
   }
@@ -137,7 +137,7 @@ function findPrevious(ll, value) {
 function findLast(ll) {
   let current = ll.head
   let next = current.next
-  while(next !== null) {
+  while (next !== null) {
     current = next
     next = next.next
   }
@@ -147,7 +147,7 @@ function findLast(ll) {
 // end free functions
 
 function main() {
-  let SLL = new LinkedList()
+  var SLL = new LinkedList()
   SLL.insertFirst('Apollo')
   SLL.insertLast('Boomer')
   SLL.insertLast('Helo')
@@ -167,8 +167,36 @@ function main() {
   // isEmpty(SLL)
   // isEmpty(new LinkedList())
   // findPrevious(SLL, 'Helo')
-  findLast(SLL)
-
+  // findLast(SLL)
 }
 
 main()
+
+// Exercise 4
+// Analyze the following function (without running it in an IDE)
+// to determine what problem it is trying to solve.
+// What is the time complexity of this algorithm?
+
+function WhatDoesThisProgramDo(lst) {
+  let current = lst.head // Node 1
+  while (current !== null) {
+    let newNode = current
+    while (newNode.next !== null) {
+      console.log(newNode)
+      if (newNode.next.value === current.value) {
+        newNode.next = newNode.next.next
+      } else {
+        newNode = newNode.next
+      }
+    }
+    current = current.next
+  }
+}
+
+WhatDoesThisProgramDo(SLL)
+// ANSWER: For as long as we do not reach the end of the list
+// compare the first Node value against the next and if equal,
+// skip to the next next node and compare, else update to next node
+// and compare. Upon reaching the end of the list, start from current's
+// next and do it again. Not really doing anything...?
+
